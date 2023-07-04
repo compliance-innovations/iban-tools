@@ -2,10 +2,7 @@
 
 require 'rubygems'
 gem 'rspec', '>= 1.2.4'
-require 'spec/rake/spectask'
+require 'rspec/core/rake_task'
 
-Spec::Rake::SpecTask.new do |t|
-  t.libs << 'lib'
-  t.spec_opts = ["--color" ]
-end
-
+# Define the "spec" task, at task load time rather than inside another task
+RSpec::Core::RakeTask.new(:spec)
